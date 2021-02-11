@@ -1,0 +1,16 @@
+name: 'Gitbook Action Build'
+on:
+  push:
+    branches:
+      - master  # trigger branch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout action
+      uses: actions/checkout@v2
+
+    - name: Publish
+      uses: tuliren/publish-gitbook@v1.0.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
